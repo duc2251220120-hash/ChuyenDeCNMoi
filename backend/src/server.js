@@ -31,10 +31,10 @@ app.get('/about', (req, res) => {
   res.json({
     appName: APP_NAME,
     student: {
-      name: 'Nguyễn Văn A',
+      name: 'Nguyễn Huy Đức',
       studentId: '2251220120',
       class: 'DCCTCT66A1',
-      email: 'duc2251220120@caothang.edu.vn',
+      email: 'duc2251220120@dau.edu.vn',
     },
     version: '1.0.0',
     description: 'Ứng dụng DevOps - Backend Node.js/Express + MySQL',
