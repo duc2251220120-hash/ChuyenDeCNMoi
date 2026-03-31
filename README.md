@@ -6,7 +6,7 @@
 
 | Họ tên | MSSV | Lớp |
 |--------|------|-----|
-| Nguyễn Văn A | 2251220120 | DCCTCT66A1 |
+| Nguyễn Huy Đức | 2251220120 | 22CT3 |
 
 ## 🏗️ Cấu Trúc Dự Án
 
@@ -85,7 +85,7 @@ curl http://localhost:5000/api/students
 # Thêm sinh viên
 curl -X POST http://localhost:5000/api/students \
   -H "Content-Type: application/json" \
-  -d '{"name":"Nguyễn Văn D","studentId":"2251220099","class":"DCCTCT66A1","email":"d@caothang.edu.vn"}'
+  -d '{"name":"Nguyễn Như Y","studentId":"2251220099","class":"CT3","email":"Y@dau.edu.vn"}'
 ```
 
 ## 🛠️ Chạy Locally (Development)
