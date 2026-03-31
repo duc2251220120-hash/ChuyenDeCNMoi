@@ -13,6 +13,6 @@ CREATE TABLE IF NOT EXISTS students (
 
 -- Dữ liệu mẫu
 INSERT INTO students (name, studentId, class, email) VALUES
-('Nguyễn Văn A', '2251220120', 'DCCTCT66A1', 'duc2251220120@caothang.edu.vn'),
+('Nguyễn Huy Đức', '2251220120', 'DCCTCT66A1', 'duc2251220120@dau.edu.vn'),
 ('Trần Thị B', '2251220001', 'DCCTCT66A1', 'b2251220001@caothang.edu.vn'),
 ('Lê Văn C', '2251220002', 'DCCTCT66A2', 'c2251220002@caothang.edu.vn');

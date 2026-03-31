@@ -6,7 +6,7 @@
 
 | Họ tên | MSSV | Lớp |
 |--------|------|-----|
-| Nguyễn Văn A | 2251220120 | DCCTCT66A1 |
+| Nguyễn Huy Đức | 2251220120 | DCCTCT66A1 |
 
 ## 🏗️ Cấu Trúc Dự Án
 

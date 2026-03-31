@@ -5,7 +5,7 @@ import StudentsPage from './pages/Students';
 
 function App() {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <nav>
         <NavLink to="/" className="logo">🚀 DevOps App</NavLink>
         <ul>
