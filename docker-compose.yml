@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  mysql:
+    build:
+      context: ./database
+    container_name: devops_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-password}
+      MYSQL_DATABASE: ${DB_NAME:-devops_db}
+      MYSQL_USER: ${DB_USER:-devuser}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-password}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - devops_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+    container_name: devops_backend
+    environment:
+      PORT: ${PORT:-5000}
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: ${DB_USER:-devuser}
+      DB_PASSWORD: ${DB_PASSWORD:-password}
+      DB_NAME: ${DB_NAME:-devops_db}
+      APP_NAME: ${APP_NAME:-DevOps App}
+    ports:
+      - "${PORT:-5000}:5000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - devops_network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_API_URL: http://localhost:${PORT:-5000}
+    container_name: devops_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - devops_network
+    restart: unless-stopped
+
+networks:
+  devops_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
